@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nama Anda — Portofolio Profesional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a; --bg2:#111111; --gold:#d4af37; --gold-light:#e8c877;
+    --ink:#f2ede1; --muted:#a8a29a; --line:rgba(212,175,55,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;overflow-x:hidden}
+  .serif{font-family:'Playfair Display',serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  .label{letter-spacing:5px;text-transform:uppercase;font-size:12px;color:var(--gold);margin-bottom:14px}
+  h2{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,44px);font-weight:700;margin-bottom:10px}
+  h2 em{font-style:italic;color:var(--gold-light)}
+  .sub{color:var(--muted);max-width:560px;font-size:16px}
+  .divider{width:72px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:22px 0}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(10,10,10,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+  .logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold-light);text-decoration:none}
+  .links{display:flex;gap:26px}
+  .links a{color:var(--muted);text-decoration:none;font-size:14px;letter-spacing:1px;transition:.25s}
+  .links a:hover{color:var(--gold-light)}
+  @media(max-width:720px){.links{display:none}}
+
+  /* hero */
+  #hero{min-height:100vh;display:flex;align-items:center;position:relative;
+    background:radial-gradient(1000px 500px at 80% 10%,rgba(212,175,55,.10),transparent 60%),var(--bg)}
+  #hero .kicker{color:var(--gold);letter-spacing:4px;font-size:13px;margin-bottom:18px}
+  #hero h1{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,84px);line-height:1.12;font-weight:700}
+  #hero h1 em{font-style:italic;color:var(--gold-light)}
+  #hero .role{margin-top:18px;font-size:18px;color:var(--muted);letter-spacing:1px}
+  .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 36px;border-radius:40px;text-decoration:none;font-size:14px;letter-spacing:2px;transition:.25s}
+  .btn.solid{background:var(--gold);color:#0a0a0a;font-weight:600}
+  .btn.solid:hover{background:var(--gold-light)}
+  .btn.ghost{border:1px solid var(--gold);color:var(--gold-light)}
+  .btn.ghost:hover{background:rgba(212,175,55,.12)}
+  .stats{margin-top:56px;display:flex;gap:44px;flex-wrap:wrap}
+  .stats div b{display:block;font-family:'Playfair Display',serif;font-size:34px;color:var(--gold-light)}
+  .stats div span{font-size:13px;color:var(--muted);letter-spacing:1px}
+
+  /* about */
+  #tentang{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:8px}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr}}
+  .photo{aspect-ratio:4/5;border-radius:18px;background:linear-gradient(135deg,#1c1c1c,#2a2415);
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold);
+    font-family:'Playfair Display',serif;font-size:20px;letter-spacing:2px}
+  .check{list-style:none;margin-top:20px}
+  .check li{padding:8px 0;color:var(--muted);font-size:15px}
+  .check li::before{content:"— ";color:var(--gold)}
+
+  /* skills */
+  .skill{margin:22px 0}
+  .skill .row{display:flex;justify-content:space-between;font-size:14px;letter-spacing:1px;margin-bottom:8px}
+  .skill .row b{color:var(--gold-light)}
+  .bar{height:6px;background:#1e1e1e;border-radius:6px;overflow:hidden}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:6px}
+
+  /* works */
+  #karya{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .work{background:#141414;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.3s}
+  .work:hover{transform:translateY(-6px);border-color:var(--gold)}
+  .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#232323,#2e2a18);display:flex;align-items:center;
+    justify-content:center;color:var(--gold);letter-spacing:3px;font-size:13px}
+  .work .body{padding:22px}
+  .work h3{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:6px}
+  .tag{display:inline-block;font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--line);
+    padding:4px 12px;border-radius:20px;margin-bottom:10px}
+  .work p{font-size:14px;color:var(--muted)}
+
+  /* experience */
+  .tl{margin-top:36px;border-left:2px solid var(--line);padding-left:32px}
+  .tl .item{position:relative;margin-bottom:36px}
+  .tl .item::before{content:"";position:absolute;left:-41px;top:6px;width:16px;height:16px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--gold)}
+  .tl .when{font-size:12px;letter-spacing:3px;color:var(--gold)}
+  .tl h3{font-family:'Playfair Display',serif;font-size:22px;margin:6px 0}
+  .tl p{font-size:14px;color:var(--muted)}
+
+  /* testimonials */
+  #testimoni .t{background:#141414;border:1px solid var(--line);border-radius:16px;padding:32px;margin-top:22px}
+  #testimoni .t p{font-style:italic;font-size:16px;color:var(--ink)}
+  #testimoni .t b{display:block;margin-top:14px;color:var(--gold-light);font-size:14px;letter-spacing:1px}
+
+  /* contact */
+  #kontak{text-align:center;background:radial-gradient(800px 400px at 50% 100%,rgba(212,175,55,.10),transparent 60%)}
+  #kontak h2{margin-bottom:6px}
+  .soc{display:flex;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap}
+  .soc a{border:1px solid var(--line);color:var(--gold-light);text-decoration:none;padding:12px 28px;border-radius:30px;
+    font-size:14px;letter-spacing:1px;transition:.25s}
+  .soc a:hover{background:rgba(212,175,55,.12);border-color:var(--gold)}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:13px;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#hero">NamaAnda.</a>
+    <div class="links">
+      <a href="#tentang">TENTANG</a>
+      <a href="#keahlian">KEAHLIAN</a>
+      <a href="#karya">KARYA</a>
+      <a href="#pengalaman">PENGALAMAN</a>
+      <a href="#kontak">KONTAK</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="kicker">SELAMAT DATANG DI PORTOFOLIO SAYA</div>
+    <h1>Halo, saya <em>Nama Anda</em>.<br>Saya seorang <em>Profesi Anda</em>.</h1>
+    <p class="role">Satu kalimat tentang apa yang Anda kerjakan dan untuk siapa.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#karya">LIHAT KARYA</a>
+      <a class="btn ghost" href="#kontak">HUBUNGI SAYA</a>
+    </div>
+    <div class="stats">
+      <div><b>5+</b><span>TAHUN PENGALAMAN</span></div>
+      <div><b>40+</b><span>PROYEK SELESAI</span></div>
+      <div><b>25+</b><span>KLIEN PUAS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="tentang">
+  <div class="wrap">
+    <div class="label">Tentang Saya</div>
+    <h2>Cerita di balik <em>karya saya</em></h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="photo">FOTO ANDA</div>
+      <div>
+        <p class="sub">Tulis 2–3 paragraf tentang siapa Anda, apa yang Anda kuasai, dan nilai apa yang Anda bawa untuk klien. Buat personal tapi tetap profesional.</p>
+        <ul class="check">
+          <li>Keunggulan atau spesialisasi pertama Anda</li>
+          <li>Keunggulan atau spesialisasi kedua Anda</li>
+          <li>Keunggulan atau spesialisasi ketiga Anda</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="keahlian">
+  <div class="wrap">
+    <div class="label">Keahlian</div>
+    <h2>Apa yang saya <em>kuasai</em></h2>
+    <div class="divider"></div>
+    <div class="skill"><div class="row"><span>KEAHLIAN UTAMA 1</span><b>95%</b></div><div class="bar"><i style="width:95%"></i></div></div>
+    <div class="skill"><div class="row"><span>KEAHLIAN UTAMA 2</span><b>90%</b></div><div class="bar"><i style="width:90%"></i></div></div>
+    <div class="skill"><div class="row"><span>KEAHLIAN UTAMA 3</span><b>85%</b></div><div class="bar"><i style="width:85%"></i></div></div>
+    <div class="skill"><div class="row"><span>KEAHLIAN UTAMA 4</span><b>80%</b></div><div class="bar"><i style="width:80%"></i></div></div>
+  </div>
+</section>
+
+<section id="karya">
+  <div class="wrap">
+    <div class="label">Portofolio</div>
+    <h2>Karya <em>pilihan</em></h2>
+    <div class="divider"></div>
+    <p class="sub">Pilih 6 karya terbaik Anda — kualitas lebih penting dari kuantitas.</p>
+    <div class="grid">
+      <div class="work"><div class="thumb">GAMBAR 1</div><div class="body"><span class="tag">KATEGORI</span><h3>Judul Proyek 1</h3><p>Deskripsi singkat: masalah apa yang diselesaikan dan hasilnya.</p></div></div>
+      <div class="work"><div class="thumb">GAMBAR 2</div><div class="body"><span class="tag">KATEGORI</span><h3>Judul Proyek 2</h3><p>Deskripsi singkat: masalah apa yang diselesaikan dan hasilnya.</p></div></div>
+      <div class="work"><div class="thumb">GAMBAR 3</div><div class="body"><span class="tag">KATEGORI</span><h3>Judul Proyek 3</h3><p>Deskripsi singkat: masalah apa yang diselesaikan dan hasilnya.</p></div></div>
+      <div class="work"><div class="thumb">GAMBAR 4</div><div class="body"><span class="tag">KATEGORI</span><h3>Judul Proyek 4</h3><p>Deskripsi singkat: masalah apa yang diselesaikan dan hasilnya.</p></div></div>
+      <div class="work"><div class="thumb">GAMBAR 5</div><div class="body"><span class="tag">KATEGORI</span><h3>Judul Proyek 5</h3><p>Deskripsi singkat: masalah apa yang diselesaikan dan hasilnya.</p></div></div>
+      <div class="work"><div class="thumb">GAMBAR 6</div><div class="body"><span class="tag">KATEGORI</span><h3>Judul Proyek 6</h3><p>Deskripsi singkat: masalah apa yang diselesaikan dan hasilnya.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="pengalaman">
+  <div class="wrap">
+    <div class="label">Perjalanan</div>
+    <h2>Pengalaman <em>kerja</em></h2>
+    <div class="divider"></div>
+    <div class="tl">
+      <div class="item">
+        <div class="when">2023 — SEKARANG</div>
+        <h3>Posisi Terakhir — Nama Perusahaan</h3>
+        <p>Capaian utama dan tanggung jawab dalam 1–2 kalimat.</p>
+      </div>
+      <div class="item">
+        <div class="when">2020 — 2023</div>
+        <h3>Posisi Sebelumnya — Nama Perusahaan</h3>
+        <p>Capaian utama dan tanggung jawab dalam 1–2 kalimat.</p>
+      </div>
+      <div class="item">
+        <div class="when">2018 — 2020</div>
+        <h3>Posisi Awal — Nama Perusahaan</h3>
+        <p>Capaian utama dan tanggung jawab dalam 1–2 kalimat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="wrap">
+    <div class="label">Testimoni</div>
+    <h2>Kata <em>mereka</em></h2>
+    <div class="divider"></div>
+    <div class="t"><p>"Tulis testimoni klien pertama di sini — hasil kerja yang rapi dan komunikasi yang menyenangkan."</p><b>— NAMA KLIEN, JABATAN</b></div>
+    <div class="t"><p>"Tulis testimoni klien kedua di sini — profesional, tepat waktu, dan hasilnya melebihi ekspektasi."</p><b>— NAMA KLIEN, JABATAN</b></div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="wrap">
+    <div class="label">Kontak</div>
+    <h2>Mari <em>bekerja sama</em></h2>
+    <div class="divider" style="margin-left:auto;margin-right:auto"></div>
+    <p class="sub" style="margin:0 auto">Ceritakan proyek atau posisi yang Anda tawarkan — saya akan merespons secepatnya.</p>
+    <div class="soc">
+      <a href="mailto:email@anda.com">EMAIL</a>
+      <a href="https://wa.me/6200000000000">WHATSAPP</a>
+      <a href="#">LINKEDIN</a>
+      <a href="#">INSTAGRAM</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">&copy; 2026 Nama Anda — Seluruh hak cipta dilindungi.</div>
+</footer>
+
+</body>
+</html>
